@@ -1,0 +1,4 @@
+# ignore airbin output for dev
+airbin
+# ignore builds
+builds
