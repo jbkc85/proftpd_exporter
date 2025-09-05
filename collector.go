@@ -26,7 +26,7 @@ func newProftpdCollector() *proftpdCollector {
 		proftpdConnections: prometheus.NewDesc(
 			prometheus.BuildFQName(EXPORTER_NAMESPACE, "user", "connections"),
 			"Current User Connections with ProFTPd",
-			[]string{"user", "port", "protocol", "remote_address"}, nil,
+			[]string{"user", "port", "protocol", "remote_address", "state"}, nil,
 		),
 	}
 }
@@ -67,7 +67,7 @@ func (collector *proftpdCollector) Collect(ch chan<- prometheus.Metric) {
 	}
 
 	for username, uniqueConnection := range uniqueConnections {
-		// []string{"user", "port", "protocol", "remote_address", "state"}, nil,
+		// []string{"user", "port", "protocol", "remote_address", "state"}
 		ch <- prometheus.MustNewConstMetric(
 			collector.proftpdConnections,
 			prometheus.GaugeValue,
