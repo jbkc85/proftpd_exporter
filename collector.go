@@ -72,7 +72,7 @@ func (collector *proftpdCollector) Collect(ch chan<- prometheus.Metric) {
 			collector.proftpdConnections,
 			prometheus.GaugeValue,
 			float64(uniqueConnection.Count),
-			username, fmt.Sprintf("%d", uniqueConnection.Connection.LocalPort), uniqueConnection.Connection.Protocol, uniqueConnection.Connection.RemoteAddress,
+			username, fmt.Sprintf("%d", uniqueConnection.Connection.LocalPort), uniqueConnection.Connection.Protocol, uniqueConnection.Connection.RemoteAddress, uniqueConnection.Connection.DetermineState(),
 		)
 	}
 }

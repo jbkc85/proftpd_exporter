@@ -51,3 +51,10 @@ func parseFtpwho() ftpwho {
 
 	return ftpwhoParsed
 }
+
+func (fw *ftpwhoConnection) DetermineState() string {
+	if fw.Idling {
+		return "idle"
+	}
+	return "active"
+}

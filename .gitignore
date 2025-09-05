@@ -2,3 +2,5 @@
 airbin
 # ignore builds
 builds
+
+.DS_Store
